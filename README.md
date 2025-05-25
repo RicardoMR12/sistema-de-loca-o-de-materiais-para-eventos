@@ -71,6 +71,10 @@ Abrir o console do projeto e colar:
 # Finalizar servidor
 Apertar Ctrl + C
 
+# Observação:
+Para abrir a aba "Adicionar material", precisa botar o a senha "0987admin", sendo possivel
+altera-la no arquivo "locacao.html" no código "const senhaCorreta = "0987admin";" na linha 64
+
 
 # Autor
 
