@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Novo Material</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Adicionar Novo Material</h1>
+        <form method="POST">
+            <label for="name">Nome do Material:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="quantity">Quantidade:</label>
+            <input type="number" id="quantity" name="quantity" min="0" required>
+
+            <button type="submit">Adicionar</button>
+        </form>
+        <a href="{{ url_for('allocate') }}">Voltar</a>
+    </div>
+</body>
+</html>

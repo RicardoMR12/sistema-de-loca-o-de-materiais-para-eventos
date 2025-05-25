@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Locação de Materiais</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Locação de Materiais</h1>
+
+        {% if error %}
+            <p class="flash error">{{ error }}</p>
+        {% endif %}
+        {% if success %}
+            <p class="flash success">{{ success }}</p>
+        {% endif %}
+
+        <form method="POST">
+            <label for="material">Selecione o Material:</label>
+            <select name="material_id" id="material" required>
+                {% for material in materials %}
+                    <option value="{{ material.id }}">{{ material.name }} ({{ material.quantity }} disponíveis)</option>
+                {% endfor %}
+            </select>
+
+            <label for="quantity">Quantidade:</label>
+            <input type="number" name="quantity" id="quantity" min="1" required>
+
+            <label for="delivery_address">Endereço de Entrega:</label>
+            <input type="text" name="delivery_address" id="delivery_address" required>
+
+            <button type="submit">Alocar</button>
+        </form>
+
+        <br>
+        <button onclick="showPopup()">Adicionar Material</button> |
+        <a href="{{ url_for('allocations') }}">Ver Minhas Alocações</a> |
+        <a href="{{ url_for('logout') }}">Sair</a>
+    </div>
+
+    <!-- Pop-up de senha -->
+    <div id="popup">
+        <div class="popup-content">
+            <h3>Digite a senha de administrador</h3>
+            <input type="password" id="adminPassword" placeholder="Senha">
+            <div>
+                <button onclick="checkPassword()">Entrar</button>
+                <button onclick="closePopup()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showPopup() {
+            document.getElementById('popup').style.display = 'flex';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        function checkPassword() {
+            const senhaCorreta = "0987admin";
+            const senhaDigitada = document.getElementById('adminPassword').value;
+
+            if (senhaDigitada === senhaCorreta) {
+                window.location.href = "{{ url_for('add_material') }}";
+            } else {
+                alert("Senha incorreta!");
+                document.getElementById('adminPassword').value = "";
+            }
+        }
+    </script>
+</body>
+</html>

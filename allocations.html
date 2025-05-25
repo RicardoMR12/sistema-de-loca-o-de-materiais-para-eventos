@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Alocações</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Relatório de Alocações</h1>
+        {% if allocations %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Material</th>
+                        <th>Quantidade</th>
+                        <th>Endereço</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for allocation in allocations %}
+                        <tr>
+                            <td>{{ allocation.id }}</td>
+                            <td>{{ allocation.material }}</td>
+                            <td>{{ allocation.quantity }}</td>
+                            <td>{{ allocation.delivery_address }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Nenhuma alocação registrada.</p>
+        {% endif %}
+        <a href="{{ url_for('allocate') }}">Voltar</a>
+    </div>
+</body>
+</html>

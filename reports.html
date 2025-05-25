@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <title>Relatórios de Materiais</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Relatórios de Materiais</h1>
+
+    <h2>Contagem de Materiais</h2>
+    <ul>
+        {% for material, count in material_counts.items() %}
+            <li>{{ material }}: {{ count }}</li>
+        {% else %}
+            <li>Nenhum material encontrado.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Média de Alocações por Usuário</h2>
+    <p>{{ "%.2f"|format(avg_allocations) }}</p>
+
+    <a href="{{ url_for('logout') }}">Sair</a>
+</body>
+</html>
