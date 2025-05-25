@@ -43,7 +43,7 @@ Pré-requisitos recomendados:
 
 ```bash
 # Clonar repositório
-https://github.com/RicardoMR12/sistema-de-loca-o-de-materiais-para-eventos
+https://github.com/RicardoMR12/sistema-de-locacao-de-materiais-para-eventos
 
 # Entrar no console do projeto back end do arquivo .py
 ## Colar instalavel obrigatório:
