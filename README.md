@@ -76,9 +76,11 @@ Para abrir a aba "Adicionar material", precisa botar o a senha "0987admin", send
 altera-la no arquivo "locacao.html" no código "const senhaCorreta = "0987admin";" na linha 64
 
 
-# Autor
+# Autores
 
 Ricardo Martins Ribeiro
+Vilimar Silva
+Bruno Marinho
 https://www.linkedin.com/in/ricardo-martins-dev/
 
 
